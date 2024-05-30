@@ -3,14 +3,14 @@ import { Nav, Navbar, Container, NavLink, Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus , faRightToBracket, faRightFromBracket, faUser} from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NavigationBar = (props) => {
-  const history = useHistory()
+  const history = useNavigate()
   const location = useLocation()
   const logoutHandler = () => {
     localStorage.removeItem('token')
-    history.push('/login')
+    history('/login')
   }
   return (
     <Navbar expand="lg" bg="light" data-bs-theme="light">

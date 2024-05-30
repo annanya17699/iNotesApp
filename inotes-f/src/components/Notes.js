@@ -5,17 +5,19 @@ import AddNote from './AddNote';
 import { Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function Notes(props) {
     const context = useContext(NoteContext);
     const {notes, getAllNotes, editNote} = context;
     const [note, setNote]=useState({id:'', etitle:'', edescription : '', etag:''});
-    const history = useHistory()
+    const history = useNavigate()
     useEffect(()=>{
-      if(localStorage.getItem('token')) getAllNotes();
-      else history.push('/login')
+      if(localStorage.getItem('token')){
+        getAllNotes();
+      }
+      else history('/login')
       // eslint-disable-next-line
-    }, [])
+    }, [note])
     const ref = useRef(null);
     const refClose = useRef(null);
     const updateNote=(currNote)=>{
