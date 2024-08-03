@@ -20,8 +20,8 @@ const NavigationBar = (props) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <NavLink className={`${location.pathname === '/'? 'active' : ''}`} href="/">Home</NavLink>
-          <NavLink className={`${location.pathname === '/about'? 'active' : ''}`} href="/about">About</NavLink>
+          <NavLink className={`${location.pathname} === '/'? 'active' : ''`} href="/">Home</NavLink>
+          <NavLink className={`${location.pathname} === '/about'? 'active' : ''`} href="/about">About</NavLink>
         </Nav>
         {localStorage.getItem('token')?
          <><b className='mx-2' style={{color:'#198754'}}><FontAwesomeIcon icon={faUser} /> {props.loggedUser.name}</b>
